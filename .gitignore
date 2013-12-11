@@ -1,0 +1,5 @@
+*~
+.build
+lib/IrSensors
+lib/PingSensor
+lib/SoftServo
