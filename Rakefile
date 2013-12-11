@@ -4,14 +4,11 @@ LIB_DIR = 'lib'
 BASE_DIR = '..'
 
 LIBS = %w{ IrSensors PingSensor SoftServo }
-# LIBS = %w{ AFMotor IrSensors Look PingSensor RobotMotor SoftServo }
 
-task :default => :lib_setup
-
-desc "Set up the libraries we need for this project"
-task :lib_setup do
-  LIBS.each do | lib |
+LIBS.each do | lib |
+  directory File.join(LIB_DIR, lib) do
     cp_r File.join(BASE_DIR, lib, LIB_DIR, lib), LIB_DIR
   end
-end
 
+  task :default => File.join(LIB_DIR, lib)
+end
