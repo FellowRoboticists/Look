@@ -1,6 +1,7 @@
-// Look library
-// copyright Dave Sieh, 2013
-// This code is public domain, enjoy!
+// Look Arduino library
+//
+// Copyright 2013 Dave Sieh
+// See LICENSE.txt for details.
 
 #ifndef _Look_h_
 #define _Look_h_

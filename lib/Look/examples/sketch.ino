@@ -1,7 +1,9 @@
 // -*- c -*-
-// Look library
-// copyright Dave Sieh, 2013
-// This code is public domain, enjoy!
+// Look Arduino library
+//
+// Copyright 2013 Dave Sieh
+// See LICENSE.txt for details.
+
 #include <Look.h>
 #include <IrSensors.h>
 #include <SoftServo.h>
