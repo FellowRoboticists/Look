@@ -3,16 +3,22 @@
 #
 # Copyright 2013 Dave Sieh
 # See LICENSE.txt for details.
+#
+# Put the parent directory on the Ruby Load path
+$: << File.dirname(File.dirname(__FILE__))
 
-LIB_DIR = 'lib'
+# Bring in the task support
+require 'arduino-tasks/tasks'
+include ArduinoTasks
+
 BASE_DIR = '..'
 
-LIBS = %w{ IrSensors PingSensor SoftServo }
+env = ArduinoEnvironment.new BASE_DIR
 
-LIBS.each do | lib |
-  directory File.join(LIB_DIR, lib) do
-    cp_r File.join(BASE_DIR, lib, LIB_DIR, lib), LIB_DIR
-  end
+LIBS = [
+  library('IrSensors'),
+  library('PingSensor'),
+  library('SoftServo')
+]
 
-  task :default => File.join(LIB_DIR, lib)
-end
+create_all_library_tasks env, LIBS, :default
