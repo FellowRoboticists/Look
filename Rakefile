@@ -1,7 +1,7 @@
 # -*- ruby -*-
 # Look Arduino library
 #
-# Copyright 2013 Dave Sieh
+# Copyright 2013,2014 Dave Sieh
 # See LICENSE.txt for details.
 #
 # Put the parent directory on the Ruby Load path
@@ -18,7 +18,8 @@ env = ArduinoEnvironment.new BASE_DIR
 LIBS = [
   library('IrSensors'),
   library('PingSensor'),
-  library('SoftServo')
+  library('SoftServo'),
+  library('pspc_support')
 ]
 
 create_all_library_tasks env, LIBS, :default

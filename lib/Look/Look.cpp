@@ -8,6 +8,7 @@
 #include "SoftServo.h"
 #include "IrSensors.h"
 #include "PingSensor.h"
+#include "pspc_support.h"
 
 Look::Look(SoftServo *sweepServo, IrSensors *sensors, PingSensor *pingSensor) {
   servo = sweepServo;
@@ -59,10 +60,12 @@ int Look::lookAt(LookDirection direction) {
   int distance = (ping) ? ping->getAverageDistance(4) : 0; // distaceToObstacle();
 
   if (angle != servoAngles[DIR_CENTER]) {
+#ifdef LOOK_DEBUG
     // Print only if looking right/left
-    Serial.print("looking at dir "); 
-    Serial.print(angle), Serial.print(" distance= "); 
+    Serial.print(P("looking at dir ")); 
+    Serial.print(angle), Serial.print(P(" distance= ")); 
     Serial.println(distance); 
+#endif
     
     // Re-center the servo
     servo->write(servoAngles[DIR_CENTER], servoDelay / 2);    

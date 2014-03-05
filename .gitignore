@@ -1,5 +1,7 @@
 *~
+*.swp
 .build
 lib/IrSensors
 lib/PingSensor
 lib/SoftServo
+lib/pspc_support
